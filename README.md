@@ -1,21 +1,27 @@
 # Homebridge Systemair Ventilator Plugin
-This is a Homebridge plugin for controlling a Systemair Ventilator through its web interface then into HomeKit. You must have a SAVEConnect WIFI module connected for this to work. You will need the IP address of the SAVEConnect device and include it in the plugin settings.
 
-# Installation:
-If Homebridge is not already installed, use the following command to install it globally:
+Homebridge plugin for controlling a **Systemair SAVE ventilator** via the **SAVEConnect WIFI module** and exposing it to **Apple HomeKit**.
 
-1. Install Homebridge:
-   ```bash
-   npm install -g homebridge
-   
-2. Install the Plugin
-   ```bash
-   npm install -g homebridge-systemair-ventilator
-Run the following command to install the Homebridge Systemair Ventilator plugin:
+The plugin communicates with the ventilator through the SAVEConnect web interface (HTTP API) and is designed to work correctly with **automatic airflow control (AUTO mode)**.
 
-3. Configure the Plugin
-Edit the Homebridge config.json file to include the plugin. Add the following under "accessories":
-   ```yaml
+A SAVEConnect WIFI module is required, and you must know the IP address of the device.
+
+---
+
+## Installation
+
+### 1) Install Homebridge
+
+```bash
+npm install -g homebridge
+```
+### 2) Install the plugin
+```bash
+npm install -g homebridge-systemair-ventilator
+```
+### 3) Configure the plugin
+Edit your Homebridge config.json and add the accessory under "accessories":
+ ```yaml
    {
      "accessories": [
        {
@@ -25,28 +31,26 @@ Edit the Homebridge config.json file to include the plugin. Add the following un
        }
      ]
    }
-Replace add your Systemair IP with the actual IP address of your Systemair SAVEConnect device.
+```
+Replace x.x.x.x with the actual IP address of your Systemair SAVEConnect device.
 
-4. Restart Homebridge
-Restart Homebridge for the changes to take effect:
-   ```bash
-   sudo systemctl restart homebridge 
+ ###  4) Restart Homebridge
+   Restart Homebridge for the changes to take effect:
+
+```bash
+npm install -g homebridge-systemair-ventilator
+```
 
 # Features:
-Control fan speeds with three settings: Low, Medium, and High.
-Adjust the target temperature directly from HomeKit.
-Automatically handles fan activation and speed synchronization.
-Create scenes for Low, Normal, and High with the following mappings:
 
-speed === 1 maps to 0% (Off)
-speed === 2 maps to 16% (Low)
-speed === 3 maps to 50% (Normal)
-speed === 4 maps to 83% (High)
+Control the ventilator ON / OFF directly from HomeKit.
 
-# Troubleshooting:
-If the ventilator doesn't respond, check the following:
+Control fan speed using the HomeKit percentage slider. Fan speed is mapped to discrete airflow levels used by the Systemair unit.
 
-Ensure the IP address in the configuration is correct.
-Verify that the SAVEConnect WIFI module is online.
-Check Homebridge logs for error messages.
+Provide a separate Refresh (Boost) button implemented as a momentary switch in HomeKit.
 
+The Refresh button triggers the ventilator’s built-in Refresh / Boost mode without forcing a fixed fan speed and without modifying temperature.
+
+The ventilator automatically returns to its previous operating state after the boost duration, fully managed by the unit itself.
+
+The plugin is compatible with automatic airflow regulation (e.g. humidity-based AUTO mode) and does not override internal control logic.
