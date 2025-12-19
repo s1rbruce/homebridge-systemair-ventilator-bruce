@@ -34,7 +34,7 @@ Replace x.x.x.x with the actual IP address of your Systemair SAVEConnect device.
    Restart Homebridge for the changes to take effect:
 
 ```bash
-   sudo systemctl restart homebridge 
+sudo systemctl restart homebridge 
 ```
 
 # Features:
