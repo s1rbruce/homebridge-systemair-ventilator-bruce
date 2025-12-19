@@ -22,15 +22,11 @@ npm install -g homebridge-systemair-ventilator
 ### 3) Configure the plugin
 Edit your Homebridge config.json and add the accessory under "accessories":
  ```yaml
-   {
-     "accessories": [
-       {
-         "accessory": "SystemairVentilator",
-         "name": "Living Room Ventilator",
-         "ip": "x.x.x.x"
-       }
-     ]
-   }
+ {
+  "accessory": "SystemairVentilatorBruce",
+  "name": "Living Room Ventilator",
+  "ip": "x.x.x.x"
+}
 ```
 Replace x.x.x.x with the actual IP address of your Systemair SAVEConnect device.
 
