@@ -17,7 +17,7 @@ npm install -g homebridge
 ```
 ### 2) Install the plugin
 ```bash
-npm install -g homebridge-systemair-ventilator
+npm install -g homebridge-systemair-ventilator-bruce
 ```
 ### 3) Configure the plugin
 Edit your Homebridge config.json and add the accessory under "accessories":
@@ -34,7 +34,7 @@ Replace x.x.x.x with the actual IP address of your Systemair SAVEConnect device.
    Restart Homebridge for the changes to take effect:
 
 ```bash
-npm install -g homebridge-systemair-ventilator
+npm install -g homebridge-systemair-ventilator-bruce
 ```
 
 # Features:
